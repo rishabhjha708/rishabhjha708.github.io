@@ -12,9 +12,9 @@ window.addEventListener('message', function (eventData) {
                 innerIframe.contentDocument.getElementById("chatBoxMain").innerHTML = "";
                 innerIframe.contentDocument.getElementById("chatOptions").innerHTML = "";
 
-                window.YellowMessengerPlugin.sendEvent(JSON.stringify({
-                    event_code: 'ym-client-event', data: "start"
-                }), '*');
+//                 window.YellowMessengerPlugin.sendEvent(JSON.stringify({
+//                     event_code: 'ym-client-event', data: "start"
+//                 }), '*');
             }
             return;
         }
