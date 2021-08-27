@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Caros Soft Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Caros Soft Regular"), url("CarosSoft.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Caros Soft Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Caros Soft Bold"), url("CarosSoftBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Caros Soft ExtraBold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Caros Soft ExtraBold"),
+    url("CarosSoftExtraBold.otf") format("opentype");
+}
