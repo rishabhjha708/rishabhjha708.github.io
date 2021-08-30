@@ -4,80 +4,104 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-
     <style>
+      @font-face {
+        font-family: "Caros Soft Regular";
+        font-style: normal;
+        font-weight: normal;
+        src: local("Caros Soft Regular"),
+          url("CarosSoft.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "Caros Soft Bold";
+        font-style: normal;
+        font-weight: normal;
+        src: local("Caros Soft Bold"),
+          url("CarosSoftBold.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "Caros Soft ExtraBold";
+        font-style: normal;
+        font-weight: normal;
+        src: local("Caros Soft ExtraBold"),
+          url("CarosSoftExtraBold.otf") format("opentype");
+      }
+
       #circle {
-        width: 56px;
-        height: 56px;
+        width: 20vw;
+        height: 20vh;
         border-radius: 50%;
         text-align: center;
-        margin-left: 9px;
-        margin-top: 15px;
-        margin-bottom: 10px;
+        position: relative;
+        top: 32%;
+        left: 8%;
       }
 
       #estimated_time {
-        margin: 8px;
-        margin-top: 13px;
-        font-family: "Caros Soft Bold";
-        font-weight: bold;
-        font-size: 8px;
-        font-weight: 400;
+        font-family: "Caros Soft Regular";
+
+        font-size: 4vmin;
         color: rgba(250, 230, 155, 255);
-        padding: 5px;
+        padding: 4px;
         background: #8a333330;
-        width: 121px;
         border-radius: 2px;
+        font-weight: 400;
+        max-width: max-content;
+        position: absolute;
+        top: 59vh;
+        left: 4vw;
       }
 
       .main_container {
-        width: 225px;
-        height: 250px;
+        width: 100vw;
+        height: 100vh;
         background-image: url("https://cdn.yellowmessenger.com/1j5EvpTvvcAp1630048953129.png");
         background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: 228px 250px;
+        background-size: 100% 100%;
+        position: relative;
       }
 
       .inline_queue {
         font-family: "Caros Soft Regular";
-        font-weight: normal;
-        font-size: 8px;
+        font-size: 3vmin;
         font-weight: 400;
         color: white;
+        position: absolute;
+        top: 17vmin;
+        left: 8vmin;
       }
       #queue_message {
-        margin-bottom: 0px;
-        margin-top: 0px;
-        padding-left: 12px;
-        padding-top: 24px;
-        padding-bottom: 0px;
-        font-weight: 400;
+        position: absolute;
+        top: 11%;
+        left: 10%;
       }
       .queue_number {
         font-family: "Caros Soft ExtraBold";
-        font-weight: normal;
-        font-size: 32px;
+        font-size: 14vmin;
         font-weight: 400;
         color: white;
-        padding-top: 5px;
-        height: 36px;
+        position: absolute;
+        top: 1vmin;
+        left: 4vmin;
       }
       .please_wait {
         font-family: "Caros Soft Regular";
-        font-weight: normal;
-        font-size: 8px;
         font-weight: 400;
+        font-size: 3vw;
         color: white;
       }
       .wait_msg {
         font-family: "Caros Soft Bold";
-        font-weight: bold;
-        font-size: 12px;
         font-weight: 400;
+        font-size: 3vw;
         color: white;
         padding-top: 6px;
+      }
+      body {
+        margin: 0px;
+        display: flex;
       }
     </style>
   </head>
