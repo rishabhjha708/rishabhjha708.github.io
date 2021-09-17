@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      @font-face {
+        font-family: "Caros Soft Regular";
+        font-style: normal;
+        font-weight: normal;
+        src: local("Caros Soft Regular"),
+          url("CarosSoft.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "Caros Soft Bold";
+        font-style: normal;
+        font-weight: normal;
+        src: local("Caros Soft Bold"),
+          url("CarosSoftBold.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "Caros Soft ExtraBold";
+        font-style: normal;
+        font-weight: normal;
+        src: local("Caros Soft ExtraBold"),
+          url("CarosSoftExtraBold.otf") format("opentype");
+      }
+
+      #circle {
+        font-family: "Caros Soft Regular";
+        font-size: 23vmin;
+        font-weight: 400;
+        color: white;
+        padding-top: 2vmin;
+      }
+
+      #estimated_time {
+        font-family: "Caros Soft Regular";
+        font-size: 4vmin;
+        color: rgba(250, 230, 155, 255);
+        font-weight: 400;
+        padding-bottom: 12vmin;
+        padding-left: 2vmin;
+      }
+
+      .main_container {
+        width: 100vw;
+        height: 100vh;
+        background-image: url(https://cdn.yellowmessenger.com/dT8v1T7Le0D41631768050901.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+      }
+
+      #queue_message {
+        position: absolute;
+        top: 6%;
+        left: 6%;
+      }
+
+      .please_wait {
+        font-family: "Caros Soft Bold";
+        font-weight: 400;
+        font-size: 5vmin;
+        color: white;
+      }
+      .wait_msg {
+        font-family: "Caros Soft Bold";
+        font-weight: 400;
+        font-size: 8vmin;
+        color: white;
+        padding-top: 2px;
+      }
+      #queue {
+        font-family: "Caros Soft Regular";
+        font-size: 8vmin;
+        font-weight: 400;
+        color: white;
+        padding-top: 12vmin;
+        padding-left: 2vmin;
+      }
+      body {
+        margin: 0px;
+        display: flex;
+      }
+      table {
+        position: relative;
+        top: 58%;
+        left: 4%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main_container">
+      <p id="queue_message"></p>
+      <!-- <div id="circle"></div> -->
+      <!-- <div id="queue">queue</div> -->
+      <!-- <div id="estimated_time"></div> -->
+      <table>
+        <tr>
+          <td id="circle" rowspan="2"></td>
+          <td id="queue">queue</td>
+        </tr>
+        <tr>
+          <td id="estimated_time"></td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      function GetURLParameter(sParam) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split("&");
+        for (var i = 0; i < sURLVariables.length; i++) {
+          var sParameterName = sURLVariables[i].split("=");
+          if (sParameterName[0] == sParam) {
+            return sParameterName[1];
+          }
+        }
+      }
+
+      function displayMessage(
+        queuePosition,
+        waitMessage,
+        estimatedWaitTimeMessage
+      ) {
+        const messageOne = document.querySelector("#queue_message");
+        const messageTwo = document.querySelector("#circle");
+        const messageThree = document.querySelector("#estimated_time");
+        const msg = decodeURIComponent(waitMessage).split("<br/>");
+        messageTwo.innerHTML = decodeURIComponent(queuePosition);
+        messageOne.innerHTML =
+          `<div class='please_wait'> ${msg[0]}</div>` +
+          `<div class='wait_msg'> ${msg[1]}</div>`;
+        messageThree.innerHTML = decodeURIComponent(estimatedWaitTimeMessage);
+      }
+
+      var queuePosition = GetURLParameter("queuePosition");
+      var waitMessage = GetURLParameter("waitMessage");
+      var estimatedWaitTimeMessage = GetURLParameter(
+        "estimatedWaitTimeMessage"
+      );
+      displayMessage(queuePosition, waitMessage, estimatedWaitTimeMessage);
+
+      window.addEventListener("message", (event) => {
+        if (event.data && event.data.queue_type == "queue_webview") {
+          const { queue_position, waitMessage, estimatedWaitTimeMessage } =
+            event.data;
+          displayMessage(queue_position, waitMessage, estimatedWaitTimeMessage);
+        } else {
+          return;
+        }
+      });
+    </script>
+  </body>
+</html>
