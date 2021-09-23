@@ -130,12 +130,16 @@
         const messageOne = document.querySelector("#queue_message");
         const messageTwo = document.querySelector("#circle");
         const messageThree = document.querySelector("#estimated_time");
+        const queueWithS = document.querySelector("#queue");
         const msg = decodeURIComponent(waitMessage).split("<br/>");
         messageTwo.innerHTML = decodeURIComponent(queuePosition);
         messageOne.innerHTML =
           `<div class='please_wait'> ${msg[0]}</div>` +
           `<div class='wait_msg'> ${msg[1]}</div>`;
         messageThree.innerHTML = decodeURIComponent(estimatedWaitTimeMessage);
+        if (queuePosition > 1) {
+          queueWithS.innerHTML = "queues";
+        }
       }
 
       var queuePosition = GetURLParameter("queuePosition");
