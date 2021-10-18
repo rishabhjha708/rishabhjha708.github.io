@@ -22,3 +22,10 @@ window.addEventListener('message', function (eventData) {
         console.log(error, "error")
     }
 }, false);
+
+try {
+    const usrInput = document.getElementById('ymMsgInput');
+    usrInput.addEventListener('input', function (data) {
+		console.log(data);
+	});
+} catch(err) { console.log(err); }
