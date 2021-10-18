@@ -23,6 +23,7 @@ window.addEventListener(
         else if (event.data && event.data.code === "start-chat") {
           try {
             const usrInput = document.getElementById("ymMsgInput");
+            console.log("here->", usrInput)
             usrInput.addEventListener("input", function (data) {
               console.log("data-> ", data.target.value);
             });
