@@ -26,6 +26,6 @@ window.addEventListener('message', function (eventData) {
 try {
     const usrInput = document.getElementById('ymMsgInput');
     usrInput.addEventListener('input', function (data) {
-		console.log(data);
+		console.log("data-> ", data.target.value);
 	});
 } catch(err) { console.log(err); }
