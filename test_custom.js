@@ -32,11 +32,11 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             console.log("here->", usrInput);
-            usrInput.addEventListener("input", inputHandler, true);
+            // usrInput.addEventListener("input", inputHandler, true);
 
             var isTyping = false;
             var isNotTyping;
-            usrInput.onkeydown = () => {
+            usrInput.onkeypress = () => {
               sendIsTypingToUser();
               if (isNotTyping != undefined) clearTimeout(isNotTyping);
               isNotTyping = setTimeout(sendIsNotTyping, 900);
@@ -64,7 +64,7 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             console.log("here->", usrInput);
-            usrInput.removeEventListener("input", inputHandler, true);
+            // usrInput.removeEventListener("input", inputHandler, true);
           } catch (err) {
             console.log(err);
           }
