@@ -3,7 +3,7 @@ console.log("custom script");
 function inputHandler(data) {
   console.log("data-> ", data.target.value);
 }
-
+let usrInput;
 window.addEventListener(
   "message",
   function (eventData) {
@@ -64,9 +64,7 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             console.log("here->", usrInput);
-            usrInput.onkeypress = (event) => {
-              event.preventDefault();
-            };
+            usrInput = undefined
             // usrInput.removeEventListener("input", inputHandler, true);
           } catch (err) {
             console.log(err);
