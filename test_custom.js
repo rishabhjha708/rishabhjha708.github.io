@@ -1,9 +1,24 @@
 console.log("custom script");
+var isTyping = false;
+var isNotTyping;
+function sendIsTypingToUser() {
+  if (!isTyping) {
+    console.log("IsTyping...........");
+    isTyping = true;
+  }
+}
+function sendIsNotTyping() {
+  console.log("Not Typing...........");
+  isTyping = false;
+}
 
 function inputHandler(data) {
-  console.log("data-> ", data.target.value);
+  //   console.log("data-> ", data.target.value);
+  sendIsTypingToUser();
+  if (isNotTyping != undefined) clearTimeout(isNotTyping);
+  isNotTyping = setTimeout(sendIsNotTyping, 900);
 }
-let usrInput;
+
 window.addEventListener(
   "message",
   function (eventData) {
@@ -32,26 +47,13 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             console.log("here->", usrInput);
-            // usrInput.addEventListener("input", inputHandler, true);
+            usrInput.addEventListener("input", inputHandler, true);
 
-            var isTyping = false;
-            var isNotTyping;
-            usrInput.onkeypress = () => {
-              sendIsTypingToUser();
-              if (isNotTyping != undefined) clearTimeout(isNotTyping);
-              isNotTyping = setTimeout(sendIsNotTyping, 900);
-            };
-
-            function sendIsTypingToUser() {
-              if (!isTyping) {
-                console.log("IsTyping...........");
-                isTyping = true;
-              }
-            }
-            function sendIsNotTyping() {
-              console.log("Not Typing...........");
-              isTyping = false;
-            }
+            // usrInput.onkeypress = () => {
+            //   sendIsTypingToUser();
+            //   if (isNotTyping != undefined) clearTimeout(isNotTyping);
+            //   isNotTyping = setTimeout(sendIsNotTyping, 900);
+            // };
           } catch (err) {
             console.log(err);
           }
@@ -64,8 +66,7 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             console.log("here->", usrInput);
-            usrInput = undefined
-            // usrInput.removeEventListener("input", inputHandler, true);
+            usrInput.removeEventListener("input", inputHandler, true);
           } catch (err) {
             console.log(err);
           }
