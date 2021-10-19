@@ -7,9 +7,9 @@ window.addEventListener(
       if (JSON.parse(eventData.data)) {
         let event = JSON.parse(eventData.data);
         // console.log(event, "testing")
-        const inputHandler = (data) => {
+        function inputHandler(data) {
           console.log("data-> ", data.target.value);
-        };
+        }
         if (event.data && event.data.code === "clear") {
           const innerIframe = document.getElementById("ymIframe");
           innerIframe.contentDocument.getElementById("chatBoxMain").innerHTML =
