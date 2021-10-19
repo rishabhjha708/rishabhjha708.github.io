@@ -29,7 +29,7 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             console.log("here->", usrInput);
-            usrInput.addEventListener("input", inputHandler, true);
+            usrInput.addEventListener("input", inputHandler, false);
           } catch (err) {
             console.log(err);
           }
@@ -42,7 +42,7 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             console.log("here->", usrInput);
-            usrInput.removeEventListener("input", inputHandler, true);
+            usrInput.removeEventListener("input", inputHandler, false);
           } catch (err) {
             console.log(err);
           }
