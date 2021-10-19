@@ -64,7 +64,9 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             console.log("here->", usrInput);
-            usrInput.off('keypress')
+            usrInput.onkeypress = (event) => {
+              event.preventDefault();
+            };
             // usrInput.removeEventListener("input", inputHandler, true);
           } catch (err) {
             console.log(err);
