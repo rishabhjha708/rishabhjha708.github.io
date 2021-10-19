@@ -7,6 +7,9 @@ window.addEventListener(
       if (JSON.parse(eventData.data)) {
         let event = JSON.parse(eventData.data);
         // console.log(event, "testing")
+        const inputHandler = (data) => {
+          console.log("data-> ", data.target.value);
+        };
         if (event.data && event.data.code === "clear") {
           const innerIframe = document.getElementById("ymIframe");
           innerIframe.contentDocument.getElementById("chatBoxMain").innerHTML =
@@ -24,11 +27,22 @@ window.addEventListener(
         } else if (event.data && event.data.code === "start-chat") {
           try {
             const innerIframe = document.getElementById("ymIframe");
-            const usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
+            usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             console.log("here->", usrInput);
-            usrInput.addEventListener("input", function (data) {
-              console.log("data-> ", data.target.value);
-            });
+            usrInput.addEventListener("input", inputHandler);
+          } catch (err) {
+            console.log(err);
+          }
+
+          // window.YellowMessengerPlugin.sendEvent(JSON.stringify({
+          //     event_code: 'ym-client-event', data: "start"
+          // }), '*');
+        } else if (event.data && event.data.code === "end-chat") {
+          try {
+            const innerIframe = document.getElementById("ymIframe");
+            usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
+            console.log("here->", usrInput);
+            usrInput.removeEventListener("input", inputHandler);
           } catch (err) {
             console.log(err);
           }
