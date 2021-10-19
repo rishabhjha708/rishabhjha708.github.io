@@ -36,7 +36,7 @@ window.addEventListener(
 
             var isTyping = false;
             var isNotTyping;
-            usrInput.onkeypress = () => {
+            usrInput.onkeydown = () => {
               sendIsTypingToUser();
               if (isNotTyping != undefined) clearTimeout(isNotTyping);
               isNotTyping = setTimeout(sendIsNotTyping, 900);
