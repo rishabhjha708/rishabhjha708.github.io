@@ -1,7 +1,7 @@
 console.log("custom script");
 
 function inputHandler(data) {
-          console.log("data-> ", data.target.value);
+  console.log("data-> ", data.target.value);
 }
 
 window.addEventListener(
@@ -11,7 +11,8 @@ window.addEventListener(
     try {
       if (JSON.parse(eventData.data)) {
         let event = JSON.parse(eventData.data);
-        // console.log(event, "testing"
+        // console.log(event, "testing")
+
         if (event.data && event.data.code === "clear") {
           const innerIframe = document.getElementById("ymIframe");
           innerIframe.contentDocument.getElementById("chatBoxMain").innerHTML =
@@ -31,7 +32,26 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             console.log("here->", usrInput);
-            usrInput.addEventListener("input", inputHandler, false);
+            usrInput.addEventListener("input", inputHandler, true);
+
+            var isTyping = false;
+            var isNotTyping;
+            usrInput.onkeypress = () => {
+              sendIsTypingToUser();
+              if (isNotTyping != undefined) clearTimeout(isNotTyping);
+              isNotTyping = setTimeout(sendIsNotTyping, 900);
+            };
+
+            function sendIsTypingToUser() {
+              if (!isTyping) {
+                console.log("IsTyping...........");
+                isTyping = true;
+              }
+            }
+            function sendIsNotTyping() {
+              console.log("Not Typing...........");
+              isTyping = false;
+            }
           } catch (err) {
             console.log(err);
           }
@@ -44,7 +64,7 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             console.log("here->", usrInput);
-            usrInput.removeEventListener("input", inputHandler, false);
+            usrInput.removeEventListener("input", inputHandler, true);
           } catch (err) {
             console.log(err);
           }
