@@ -31,7 +31,7 @@ function inputHandler(data) {
     try {
         sendIsTypingToUser();
         if (isNotTyping != undefined) clearTimeout(isNotTyping);
-        isNotTyping = setTimeout(sendIsNotTyping, 3000);
+        isNotTyping = setTimeout(sendIsNotTyping, 2000);
     } catch (err) {
         console.log(err);
     }
