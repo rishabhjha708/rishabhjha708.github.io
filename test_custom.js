@@ -36,7 +36,7 @@ window.addEventListener(
 
             var isTyping = false;
             var isNotTyping;
-            usrInput.onkeydown = () => {
+            usrInput.onkeypress = () => {
               sendIsTypingToUser();
               if (isNotTyping != undefined) clearTimeout(isNotTyping);
               isNotTyping = setTimeout(sendIsNotTyping, 900);
@@ -64,7 +64,7 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             console.log("here->", usrInput);
-            event.preventDefault();
+            usrInput.off('keypress')
             // usrInput.removeEventListener("input", inputHandler, true);
           } catch (err) {
             console.log(err);
