@@ -100,15 +100,15 @@ window.addEventListener(
             innerIframe.contentDocument.getElementById("chatDetails");
           chatHeader.style.backgroundImage =
             "url('https://cdn.yellowmessenger.com/Eaf9VXBO8C661636518084435.png')";
-          let elements = document.getElementsByClassName("icon");
+          let elements = chatHeader.getElementsByClassName("icon");
           while (elements.length > 0) {
             elements[0].parentNode.removeChild(elements[0]);
           }
-          elements = document.getElementsByClassName("title");
+          elements = chatHeader.getElementsByClassName("title");
           while (elements.length > 0) {
             elements[0].parentNode.removeChild(elements[0]);
           }
-          elements = document.getElementsByClassName("sub-title");
+          elements = chatHeader.getElementsByClassName("sub-title");
           while (elements.length > 0) {
             elements[0].parentNode.removeChild(elements[0]);
           }
