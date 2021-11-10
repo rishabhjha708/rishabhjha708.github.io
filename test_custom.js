@@ -95,8 +95,23 @@ window.addEventListener(
             console.log(err);
           }
         } else if (event.event_code == "ym-bot-opened") {
-          // pass
-          return;
+          const innerIframe = document.getElementById("ymIframe");
+          let chatHeader =
+            innerIframe.contentDocument.getElementById("chatDetails");
+          chatHeader.style.backgroundImage =
+            "url('https://cdn.yellowmessenger.com/Eaf9VXBO8C661636518084435.png')";
+          let elements = document.getElementsByClassName("icon");
+          while (elements.length > 0) {
+            elements[0].parentNode.removeChild(elements[0]);
+          }
+          elements = document.getElementsByClassName("title");
+          while (elements.length > 0) {
+            elements[0].parentNode.removeChild(elements[0]);
+          }
+          elements = document.getElementsByClassName("sub-title");
+          while (elements.length > 0) {
+            elements[0].parentNode.removeChild(elements[0]);
+          }
         }
       }
     } catch (error) {
