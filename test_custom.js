@@ -76,7 +76,7 @@ window.addEventListener(
                 estimated_time: estimated_time,
                 estimatedWaitTimeMessage: estimatedWaitTimeMessage,
               },
-              "https://staging.yellowmessenger.com"
+              "https://app.yellowmessenger.com"
             );
         } else if (event.data && event.data.code === "start-polling-livechat") {
           try {
@@ -98,6 +98,12 @@ window.addEventListener(
           const innerIframe = document.getElementById("ymIframe");
           let chatHeader =
             innerIframe.contentDocument.getElementById("chatDetails");
+          let img = chatHeader.getElementsByClassName("icon");
+          img.src =
+            "https://cdn.yellowmessenger.com/GEqWWOt1dY7h1636613828709.png";
+          img.style.width = "45px";
+          img.style.height = "60px";
+          chatHeader.style.height = "50px";
         }
       }
     } catch (error) {
