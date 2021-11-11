@@ -7,10 +7,12 @@ function sendIsTypingToUser() {
       console.log("IsTyping...........");
       isTyping = true;
       window.YellowMessengerPlugin.sendEvent(
-        JSON.stringify({
-          event_code: "ym-user-typing-start",
-          data: "user_typing",
-        }),
+        {
+          event: {
+            code: "ym-user-typing-start",
+            data: "user_typing",
+          },
+        },
         "*"
       );
     }
@@ -23,10 +25,12 @@ function sendIsNotTyping() {
     console.log("Not Typing...........");
     isTyping = false;
     window.YellowMessengerPlugin.sendEvent(
-      JSON.stringify({
-        event_code: "ym-user-typing-stop",
-        data: "user_typing",
-      }),
+      {
+        event: {
+          code: "ym-user-typing-stop",
+          data: "user_typing",
+        },
+      },
       "*"
     );
   } catch (err) {
