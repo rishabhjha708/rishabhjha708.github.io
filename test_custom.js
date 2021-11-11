@@ -99,12 +99,16 @@ window.addEventListener(
           let chatHeader =
             innerIframe.contentDocument.getElementById("chatDetails");
           let img = chatHeader.getElementsByClassName("icon")[0];
+          let title = chatHeader.getElementsByClassName("title")[0];
+          title.style.paddingTop = "8px";
           img.src =
             "https://cdn.yellowmessenger.com/GEqWWOt1dY7h1636613828709.png";
-          img.style.width = "47px";
-          img.style.height = "60px";
+          img.style.width = "59px";
+          img.style.height = "69px";
           img.style.borderRadius = "0px";
           chatHeader.style.height = "50px";
+          chatHeader.style.paddingTop = "10px";
+          chatHeader.style.paddingBottom = "21px";
         }
       }
     } catch (error) {
