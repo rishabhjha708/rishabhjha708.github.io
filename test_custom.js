@@ -103,6 +103,7 @@ window.addEventListener(
             "https://cdn.yellowmessenger.com/GEqWWOt1dY7h1636613828709.png";
           img.style.width = "45px";
           img.style.height = "60px";
+          img.style.borderRadius = "0px";
           chatHeader.style.height = "50px";
         }
       }
