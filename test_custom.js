@@ -98,7 +98,7 @@ window.addEventListener(
           const innerIframe = document.getElementById("ymIframe");
           let chatHeader =
             innerIframe.contentDocument.getElementById("chatDetails");
-          let img = chatHeader.getElementsByClassName("icon");
+          let img = chatHeader.getElementsByClassName("icon")[0];
           img.src =
             "https://cdn.yellowmessenger.com/GEqWWOt1dY7h1636613828709.png";
           img.style.width = "45px";
