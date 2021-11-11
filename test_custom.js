@@ -76,7 +76,7 @@ window.addEventListener(
                 estimated_time: estimated_time,
                 estimatedWaitTimeMessage: estimatedWaitTimeMessage,
               },
-              "https://app.yellowmessenger.com"
+              "https://staging.yellowmessenger.com"
             );
         } else if (event.data && event.data.code === "start-polling-livechat") {
           try {
