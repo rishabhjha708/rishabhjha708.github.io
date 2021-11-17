@@ -107,8 +107,8 @@ window.addEventListener(
           title.style.paddingTop = "8px";
           img.src =
             "https://cdn.yellowmessenger.com/GEqWWOt1dY7h1636613828709.png";
-          img.style.width = "59px";
-          img.style.height = "69px";
+          img.style.width = "58px";
+          img.style.height = "71px";
           img.style.borderRadius = "0px";
           chatHeader.style.height = "50px";
           chatHeader.style.paddingTop = "10px";
