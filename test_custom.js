@@ -107,7 +107,7 @@ window.addEventListener(
           let img = chatHeader.getElementsByClassName("icon")[0];
           let title = chatHeader.getElementsByClassName("title")[0];
           title.style.fontFamily = "Lato, sans-serif";
-          title.style.fontSize = "900";
+          title.style.fontWeight = "900";
 //           img.src =
 //             "https://cdn.yellowmessenger.com/GEqWWOt1dY7h1636613828709.png";
           img.style.width = "57px";
