@@ -99,6 +99,7 @@ window.addEventListener(
             console.log(err);
           }
         } else if (event.event_code == "ym-bot-opened") {
+          console.log("changing bot attribute");
           const innerIframe = document.getElementById("ymIframe");
           let chatHeader =
             innerIframe.contentDocument.getElementById("chatDetails");
