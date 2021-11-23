@@ -106,15 +106,16 @@ window.addEventListener(
             innerIframe.contentDocument.getElementById("chatDetails");
           let img = chatHeader.getElementsByClassName("icon")[0];
           let title = chatHeader.getElementsByClassName("title")[0];
-//           title.style.paddingTop = "8px";
+          title.style.fontFamily = "Lato, sans-serif";
+          title.style.fontSize = "900";
 //           img.src =
 //             "https://cdn.yellowmessenger.com/GEqWWOt1dY7h1636613828709.png";
-//           img.style.width = "82px";
-//           img.style.height = "104px";
-//           img.style.borderRadius = "0px";
-//           chatHeader.style.height = "50px";
-//           chatHeader.style.paddingTop = "10px";
-//           chatHeader.style.paddingBottom = "26px";
+          img.style.width = "57px";
+          img.style.height = "57px";
+          img.style.borderRadius = "50px";
+          chatHeader.style.paddingTop = "6px";
+          chatHeader.style.paddingBottom = "25px";
+          
         }
       }
     } catch (error) {
