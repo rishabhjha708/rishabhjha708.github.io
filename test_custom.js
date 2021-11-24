@@ -1,4 +1,4 @@
-console.log("custom script");
+// console.log("custom script");
 var isTyping = false;
 var isNotTyping;
 function sendIsTypingToUser() {
@@ -53,7 +53,7 @@ window.addEventListener(
   "message",
   function (eventData) {
     try {
-      console.log("eventData", eventData)
+//       console.log("eventData", eventData)
       if (JSON.parse(eventData.data)) {
         let event = JSON.parse(eventData.data);
         if (
@@ -61,7 +61,7 @@ window.addEventListener(
           event.data &&
           event.data.code === "queue_position_updated"
         ) {
-          console.log("Received queued event");
+//           console.log("Received queued event");
           const queue_position = event.data.data.queue_position;
           const estimated_time = event.data.data.estimated_time;
           const waitMessage = event.data.data.waitMessage;
@@ -100,7 +100,7 @@ window.addEventListener(
             console.log(err);
           }
         } else if (event.event_code == "ym-bot-opened") {
-          console.log("changing bot attribute");
+//           console.log("changing bot attribute");
           const innerIframe = document.getElementById("ymIframe");
           let chatHeader =
             innerIframe.contentDocument.getElementById("chatDetails");
