@@ -111,7 +111,6 @@ window.addEventListener(
           title.style.fontWeight = "600";
           title.style.paddingTop = "10px";
           title.style.fontSize = "20px";
-          console.log("subtitle", subTitle);
           subTitle.style.opacity = "0.8";
 //           img.src =
 //             "https://cdn.yellowmessenger.com/GEqWWOt1dY7h1636613828709.png";
