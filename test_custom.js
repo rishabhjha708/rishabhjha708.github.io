@@ -53,7 +53,7 @@ window.addEventListener(
   "message",
   function (eventData) {
     try {
-//       console.log("eventData", eventData)
+      console.log("eventData", eventData)
       if (JSON.parse(eventData.data)) {
         let event = JSON.parse(eventData.data);
         if (
