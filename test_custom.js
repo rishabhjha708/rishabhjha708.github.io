@@ -4,7 +4,7 @@ var isNotTyping;
 function sendIsTypingToUser() {
   try {
     if (!isTyping) {
-      console.log("IsTyping...........");
+//       console.log("IsTyping...........");
       isTyping = true;
       window.YellowMessengerPlugin.sendEvent(
         {
@@ -22,7 +22,7 @@ function sendIsTypingToUser() {
 }
 function sendIsNotTyping() {
   try {
-    console.log("Not Typing...........");
+//     console.log("Not Typing...........");
     isTyping = false;
     window.YellowMessengerPlugin.sendEvent(
       {
