@@ -106,9 +106,12 @@ window.addEventListener(
             innerIframe.contentDocument.getElementById("chatDetails");
           let img = chatHeader.getElementsByClassName("icon")[0];
           let title = chatHeader.getElementsByClassName("title")[0];
+          let subTitle = chatHeader.getElementsByClassName("sub-title")[0];
           title.style.fontFamily = "Lato, sans-serif";
-          title.style.fontWeight = "900";
-          title.style.paddingTop = "6px";
+          title.style.fontWeight = "600";
+          title.style.paddingTop = "10px";
+          title.style.fontSize = "20px";
+          subTitle.style.opacity = "0.8";
 //           img.src =
 //             "https://cdn.yellowmessenger.com/GEqWWOt1dY7h1636613828709.png";
           img.style.width = "57px";
