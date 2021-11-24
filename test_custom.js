@@ -106,7 +106,7 @@ window.addEventListener(
             innerIframe.contentDocument.getElementById("chatDetails");
           let img = chatHeader.getElementsByClassName("icon")[0];
           let title = chatHeader.getElementsByClassName("title")[0];
-          let subTitle = chatHeader.getElementsByClassName("sub-title")[0];
+          let subTitle = chatHeader.getElementsByClassName("sub-title")[1];
           title.style.fontFamily = "Lato, sans-serif";
           title.style.fontWeight = "600";
           title.style.paddingTop = "10px";
