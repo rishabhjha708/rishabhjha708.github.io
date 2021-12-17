@@ -49,11 +49,30 @@ function inputHandler(data) {
   }
 }
 
+function sendBackupPollingEvent() {
+  try {
+    console.log("Sending polling event");
+    window.YellowMessengerPlugin.sendEvent(
+      {
+        event: {
+          code: "user-polling-time-diff",
+          data: { "data": "test" },
+        },
+      },
+      "*"
+    );
+    
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 window.addEventListener(
   "message",
   function (eventData) {
     try {
 //       console.log("eventData", eventData)
+      let intervalId;
       if (JSON.parse(eventData.data)) {
         let event = JSON.parse(eventData.data);
         if (
@@ -88,6 +107,8 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             usrInput.addEventListener("input", inputHandler, true);
+            intervalId = setInterval(sendBackupPollingEvent, 30 * 1000);
+            
           } catch (err) {
             console.log(err);
           }
@@ -96,6 +117,7 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             usrInput.removeEventListener("input", inputHandler, true);
+            clearInterval(intervalId);
           } catch (err) {
             console.log(err);
           }
