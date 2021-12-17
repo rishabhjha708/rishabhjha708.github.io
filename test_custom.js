@@ -108,6 +108,7 @@ window.addEventListener(
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             usrInput.addEventListener("input", inputHandler, true);
             intervalId = setInterval(sendBackupPollingEvent, 30 * 1000);
+            console.log("interID:::", intervalId)
             
           } catch (err) {
             console.log(err);
