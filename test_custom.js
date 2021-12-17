@@ -71,7 +71,7 @@ window.addEventListener(
   "message",
   function (eventData) {
     try {
-      console.log("eventData", eventData)
+//       console.log("eventData", eventData)
       let intervalId;
       if (JSON.parse(eventData.data)) {
         let event = JSON.parse(eventData.data);
@@ -107,8 +107,8 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             usrInput.addEventListener("input", inputHandler, true);
-            intervalId = setInterval(sendBackupPollingEvent, 30 * 1000);
-            console.log("interID:::", intervalId)
+//             intervalId = setInterval(sendBackupPollingEvent, 30 * 1000);
+//             console.log("interID:::", intervalId)
             
           } catch (err) {
             console.log(err);
@@ -118,8 +118,8 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             usrInput.removeEventListener("input", inputHandler, true);
-            console.log("interval ", intervalId);
-            clearInterval(intervalId);
+//             console.log("interval ", intervalId);
+//             clearInterval(intervalId);
           } catch (err) {
             console.log(err);
           }
