@@ -117,6 +117,7 @@ window.addEventListener(
             const innerIframe = document.getElementById("ymIframe");
             usrInput = innerIframe.contentDocument.getElementById("ymMsgInput");
             usrInput.removeEventListener("input", inputHandler, true);
+            console.log("interval ", intervalId);
             clearInterval(intervalId);
           } catch (err) {
             console.log(err);
