@@ -123,7 +123,28 @@ window.addEventListener(
           } catch (err) {
             console.log(err);
           }
-        } else if (event.data && event.data.code === "web-bot-opened") {
+        }
+        else if (event.data && event.data.code === "sf-agent-typing-start") {
+          try {
+            const innerIframe = document.getElementById("ymIframe");
+            let typingDiv = innerIframe.contentDocument.getElementById("typing");
+            typingDiv.style.display = "inline-block"
+            
+          } catch (err) {
+            console.log(err);
+          }
+        }
+        else if (event.data && event.data.code === "sf-agent-typing-stop") {
+          try {
+            const innerIframe = document.getElementById("ymIframe");
+            let typingDiv = innerIframe.contentDocument.getElementById("typing");
+            typingDiv.style.display = "none"
+            
+          } catch (err) {
+            console.log(err);
+          }
+        }
+        else if (event.data && event.data.code === "web-bot-opened") {
 //           console.log("changing bot attribute");
           const innerIframe = document.getElementById("ymIframe");
           let chatHeader =
